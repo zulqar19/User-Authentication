@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Register {% endblock %}
+{% block code %}
+
+<form class="container w-50 mt-3 shadow-lg rounded-3 mb-5" method="post">
+    {% csrf_token %}
+    <h1 class="mt-1">Register</h1>
+    <hr>
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="first_name" required>
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+        <input type="text" name="last_name" class="form-control" required>
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required>
+        {% if messages %}
+        {% for message in messages %}
+        <p class="text-danger">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" required aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="mb-1">Alerady have an account? <a href="/login/">Login</a></div>
+    <button type="submit" class="btn btn-success form-control mb-2">Submit</button>
+</form>
+
+{% endblock %}

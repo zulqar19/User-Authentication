@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block code %}
+
+<form class="container w-50 mt-3 shadow-lg rounded-3" method="post">
+    {% csrf_token %}
+    <h1 class="mt-1">Login</h1>
+    <hr>
+    
+    {% if messages %}
+
+    {% for message in messages %}
+    <p class="alert alert-danger" role="alert">{{ message }}</p>
+    {% endfor %}
+
+{% endif %}
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required>
+
+    </div>
+    <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+
+    </div>
+    <div class="mb-1">Don't have an account? <a href="/">Register</a></div>
+    <button type="submit" class="btn btn-success form-control mb-3">Submit</button>
+</form>
+
+{% endblock %}

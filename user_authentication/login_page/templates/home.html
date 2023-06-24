@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+
+{% block code %}
+
+<div class="container w-50">
+    <h1 class="text-center">Welcome to the Home Page</h1>
+
+    <h1 class="text-center">Mr . {{request.user.first_name}} {{request.user.last_name}}</h1>
+    <br>
+    <a href="/logout/" class="text-decoration-none text-white-50"><button
+            class="btn btn-danger text-center w-100">Logout</button></a>
+
+
+</div>
+
+{% endblock %}
